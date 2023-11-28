@@ -7,8 +7,8 @@ import random
 pygame.init()
 
 # Definir el tamaño de la ventana y el tamaño de los píxeles
-ventana_ancho = 600
-ventana_alto = 600
+ventana_ancho = 800
+ventana_alto = 800
 pixel_size = 5
 
 
@@ -78,17 +78,12 @@ pygame.display.set_caption("Dibujo en Píxeles")
 def dibujar_dibujo(surface, dibujo):
     for i in range(len(dibujo)):
         for j in range(len(dibujo[0])):
-            color = pygame.Color("black") if dibujo[i][j] == 1 else pygame.Color("white") 
+            color = (random.randint(0, 200), random.randint(0, 200), random.randint(0, 200)) if dibujo[i][j] == 1 else pygame.Color("white") 
             pygame.draw.rect(surface, color, (j * pixel_size, i * pixel_size, pixel_size, pixel_size))
 
 # Bucle principal del juego
 
-tablero_final =  [[0]*tamanio for _ in range(tamanio)]
-
-
-tablero_final[5][5] = 1
-tablero_final[5][6] = 1
-tablero_final[5][7] = 1
+tablero_final = [[random.randint(0, 1) for _ in range(tamanio)] for _ in range(tamanio)]
 
 
 
